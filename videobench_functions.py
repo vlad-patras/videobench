@@ -3,6 +3,7 @@ from subprocess import call
 import subprocess
 import json
 import operator
+import tempfile
 
 from PySide2 import QtGui, QtWidgets, QtCore     ############# If you are not using the GUI , you can remove this block of import
 from PySide2.QtCore import QPoint, Qt
@@ -12,7 +13,7 @@ from PySide2.QtCharts import QtCharts
 
 
 container_tmp_path ="/home/shared-vmaf/"
-tmp_path = "/tmp/videobench/"
+tmp_path = tempfile.gettempdir() + "/videobench/"
 docker_cmd = "docker container run --rm  -v {}:{} docker-videobench".format(tmp_path, container_tmp_path)
 
 class videoFileInfos(object):
